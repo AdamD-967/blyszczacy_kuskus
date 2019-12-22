@@ -3,7 +3,10 @@ import numpy as np
 from Equation import Expression
 
 f = Expression(input("podaj wzór funkcji"), ["x"])
-x = np.arange(0, 10, 0.1)
+k = float(input("od kąta"))
+m = float(input("do kąta"))
+l = float(input("między kątami"))
+x = np.arange(k, m, l)
 plt.plot(x, f(x), "g*", label=str(f))
 plt.legend()
 plt.grid()
