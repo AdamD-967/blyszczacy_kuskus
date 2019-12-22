@@ -3,8 +3,15 @@ import numpy as np
 from Equation import Expression
 
 f = Expression(input("podaj wzór funkcji"), ["x"])
-x = np.arange(0, 10, 0.1)
-plt.plot(x, f(x), "g*", label=str(f))
+k = float(input("od kąta"))
+m = float(input("do kąta"))
+l = float(input("między kątami"))
+x = np.arange(k, m, l)
+n = input("wybierz sposób rysowania")
+if n == "linia ciągła":
+    plt.plot(x, f(x), label=str(f))
+else:
+    plt.plot(x, f(x), 'g*', label=str(f))
 plt.legend()
 plt.grid()
 plt.axvline(color="k", lw=2)
