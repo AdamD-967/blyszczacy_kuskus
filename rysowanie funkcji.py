@@ -2,16 +2,22 @@ import matplotlib.pyplot as plt
 import numpy as np
 from Equation import Expression
 
-f = Expression(input("podaj wzór funkcji"), ["x"])
+Y = []
+r = int(input("ilość funkcji"))
 k = float(input("od kąta"))
 m = float(input("do kąta"))
 l = float(input("między kątami"))
-x = np.arange(k, m, l)
 n = input("wybierz sposób rysowania")
-if n == "linia ciągła":
-    plt.plot(x, f(x), label=str(f))
-else:
-    plt.plot(x, f(x), 'g*', label=str(f))
+x = np.arange(k, m, l)
+for i in range(r):
+    f = Expression(input("podaj wzór funkcji"), ["x"])
+    Y.append(f)
+for f in Y:
+    y = f(x)
+    if n == "linia ciągła":
+        plt.plot(x, y, label=str(f))
+    else:
+        plt.plot(x, y, 'g*', label=str(f))
 plt.legend()
 plt.grid()
 plt.axvline(color="k", lw=2)
