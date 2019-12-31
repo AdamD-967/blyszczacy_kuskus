@@ -1,17 +1,28 @@
-x=int(input("podaj ilość rzędów"))
-y=1
-def i(n):
-    return n+1
-n=0
-for w in range(x):
-    if i(n)==1:
-        m=1
-    else:
-        m=0
-    print(i(n),":",m)
-    n=n+1
-    f=i(n)
-def m(f):
-    return i(n-1)+i(n-2)
-for z in range(x):
-    print(i(n),":",m(f))
+x = int(input("ilość rzędów"))
+
+
+def f(X):
+    Y = []
+    n = 0
+    for element in X:
+        y = element+X[n-1]
+        n = n+1
+        Y.append(y)
+    return Y
+
+
+X = [1]
+for j in range(x-1):
+    X.append(0)
+Y = []
+for element in X:
+    if element != 0:
+        Y.append(element)
+print(Y)
+for i in range(x-1):
+    Y = []
+    X = f(X)
+    for element in X:
+        if element != 0:
+            Y.append(element)
+    print(Y)
