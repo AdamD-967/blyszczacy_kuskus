@@ -8,12 +8,22 @@ for i in range(len(str(x))):
     n = n+1
 Xp = []
 up = 0
+<<<<<<< HEAD
 uz = X.index('.')+1
 while up < X.index('.'):
     Xp.append(int(X[up]))
     up = up+1
 if p == 'p':
     print(Xp)
+=======
+Xz = []
+r = X.index('.')-1
+uz = r+2
+if p == 'p':
+    for v in range(len(X)-(r+1)):
+        Xp.append(int(X[up]))
+        up = up+1
+>>>>>>> master
     if Xp[z] >= 5:
         Xp[z-1] = Xp[z-1]+1
     q = 1
@@ -24,6 +34,7 @@ if p == 'p':
     for k in Xp:
         o = o+str(k)
     o = o+'.0'
+<<<<<<< HEAD
 else:
     Xz = []
     for i in range(len(X)-uz):
@@ -42,3 +53,8 @@ else:
     for l in Xz:
         o = o+str(l)
 print(float(o))
+=======
+    print(o)
+else:
+    print("tymczasowy brak funkcji")
+>>>>>>> master
