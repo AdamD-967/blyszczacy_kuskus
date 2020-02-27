@@ -10,11 +10,11 @@ X = []
 N = []
 p = 0
 while True:
-    xw = int(input('podaj numer wiersza'))-1
+    xw = int(input('podaj numer wiersza(x)'))-1
     xk = int(input('podaj numer kolumny'))-1
-    while P[xw, xk] not in L:
-        xw = int(input('podaj numer wiersza')) - 1
-        xk = int(input('podaj numer kolumny')) - 1
+    while P[xw, xk] not in L or xw > 2 or xk > 2 or xw < 0 or xk < 0:
+        xw = int(input('podaj numer wiersza(x)')) - 1
+        xk = int(input('podaj numer kolumny(x)')) - 1
     L.remove(P[xw, xk])
     X.append(P[xw, xk])
     P[xw, xk] = 'x'
@@ -44,11 +44,11 @@ while True:
             print('and the winner is X')
             break
     if t == "zią":
-        ow = int(input('podaj numer wiersza')) - 1
-        ok = int(input('podaj numer kolumny')) - 1
-        while P[ow, ok] not in L:
-            ow = int(input('podaj numer wiersza')) - 1
-            ok = int(input('podaj numer kolumny')) - 1
+        ow = int(input('podaj numer wiersza(o)')) - 1
+        ok = int(input('podaj numer kolumny(o)')) - 1
+        while P[ow, ok] not in L or ow > 2 or ok > 2 or ow < 0 or ok < 0:
+            ow = int(input('podaj numer wiersza(o)')) - 1
+            ok = int(input('podaj numer kolumny(o)')) - 1
         L.remove(P[ow, ok])
         N.append(P[ow, ok])
         P[ow, ok] = 'o'
