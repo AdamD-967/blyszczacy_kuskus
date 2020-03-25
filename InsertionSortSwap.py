@@ -6,7 +6,10 @@ def swap(arr, s, f):
 
 L = [1, 5, 9, 7, 6]
 print(L)
-a1 = int(input("si: "))-1
-a2 = int(input("fi: "))-1
-swap(L, a1, a2)
-print(L)
+t = bool(int(input("dalej: ")))
+while t:
+    a = int(input("z kąd: "))-1
+    b = int(input("do kąd: "))-1
+    swap(L, a, b)
+    print(L)
+    t = bool(int(input("dalej: ")))
