@@ -28,6 +28,9 @@ try:
         d[e["data-position-id"]]['title'] = b
         c = a.find('div').find('h3').find(class_="film__production-year").string
         d[e["data-position-id"]]['year'] = c
+        f = a.find(class_="place__extras").find('div').find('div').find_all('span')
+        d[e["data-position-id"]]['rate'] = f[0].string
+        d[e["data-position-id"]]['number of rates'] = f[1].string
     print(pd.DataFrame.from_dict(d, orient='index'))
 except:
     print("went wrong :(")
