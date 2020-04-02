@@ -1,8 +1,11 @@
 import matplotlib.pyplot as plt
-import random
+from random import randint
+from csv import reader
 print('zagrajmy w wiśła')
-D = ["kot", "pies", "łoś", "patelnia", "mundurek"]
-x = random.choice(D)
+with open("some.txt") as c:
+    r = reader(c, delimiter=";")
+    R = [row for row in r]
+    x = R[randint(0, 7)][randint(0, 3)]
 X = []
 n = 0
 l = len(x)
