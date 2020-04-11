@@ -1,15 +1,13 @@
 import random
 
 def Isort(arr):
-    for i in range(1, len(arr)):
-        a = i+1
-        for q in range(0, i-1):
-            if arr[q] < arr[i]:
-                a = q
-                break
+    for i in range(len(arr)):
         n = arr[i]
-        for m in range(a, i+1):
-            n, arr[i] = arr[i], n
+        j = i-1
+        for j in range(i-1, -1, -1):
+            if arr[j] > arr[i]:
+                arr.insert(j, arr.pop(i))
+                break
 
 
 L = []
