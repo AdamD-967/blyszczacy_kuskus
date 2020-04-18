@@ -1,13 +1,13 @@
 import random
 
 def Isort(arr):
-    for i in range(len(arr)):
-        n = arr[i]
-        j = i-1
-        for j in range(i-1, -1, -1):
-            if arr[j] > arr[i]:
-                arr.insert(j, arr.pop(i))
-                break
+    for i in range(1, len(arr)):
+        if arr[i-1] > arr[i]:
+            j = 0
+            while arr[i] > arr[j]:
+                j+=1
+            arr.insert(j, arr[i])
+            arr.pop(i+1)
 
 
 L = []
