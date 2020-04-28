@@ -43,6 +43,7 @@ find.submit()
 WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xpdf)))
 lin = driver.find_element_by_xpath(xpdf).get_attribute("href")
 driver.get(lin)
+#do tąd działa 
 
 WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xpage)))
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
