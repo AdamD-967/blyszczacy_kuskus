@@ -1,6 +1,8 @@
 import random
+from numba import njit
 
-def Bsort(arr):
+@njit
+def bsort(arr):
     c = 1
     n = len(arr)-1
     while c > 0:
@@ -20,5 +22,5 @@ L = []
 for s in range(l):
     L.append(random.randint(a1, a2))
 print(L)
-Bsort(L)
+bsort(L)
 print(L)

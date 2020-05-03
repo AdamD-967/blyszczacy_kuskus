@@ -1,7 +1,25 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///example.sqlite"
 app.secret_key = "abc"
+
+db = SQLAlchemy(app)
+
+class SampleData(db.Model):
+    _id = db.Column("id", db.Integer, primary_key=True)
+    number = db.Column(db.String(25))
+    string = db.Column(db.String(25))
+
+    def __init__(self, number, string):
+        self.number = number
+        self.string = string
+
+
+@app.route("/view")
+def view():
+    return render_template("view.html", values=SampleData.query.all())
 
 @app.route("/")
 def start():
@@ -16,10 +34,18 @@ def login():
     else:
         return render_template("login.html")
 
-@app.route("/user")
+@app.route("/user", methods=["GET", "POST"])
 def home():
     if "user" in session.values():
-        return render_template("main.html")
+        if request.method == "POST":
+            num = request.form["num"]
+            word = request.form["word"]
+            data = SampleData(num, word)
+            db.session.add(data)
+            db.session.commit()
+            return render_template("main.html")
+        else:
+            return render_template("main.html")
     else:
         return render_template("no.html")
 
@@ -30,4 +56,5 @@ def logout():
 
 
 if __name__ == "__main__":
+    db.create_all()
     app.run(debug=True)

@@ -1,6 +1,8 @@
 import random
+from numba import njit
 
-def Isort(arr):
+@njit
+def isort(arr):
     for i in range(1, len(arr)):
         if arr[i-1] > arr[i]:
             j = 0
@@ -17,5 +19,5 @@ a2 = int(input("podaj koniec zakresu: "))
 for r in range(l):
     L.append(random.randint(a1, a2))
 print(L)
-Isort(L)
+isort(L)
 print(L)

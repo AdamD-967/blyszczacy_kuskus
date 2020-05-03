@@ -1,6 +1,8 @@
 import random
+from numba import njit
 
-def Ssort(v):
+@njit
+def ssort(v):
     for i in range(len(v)):
         n = v[i]
         for j in range(i, len(v)):
@@ -18,5 +20,5 @@ r = []
 for m in range(l):
     r.append(random.randint(a1, a2))
 print(r)
-Ssort(r)
+ssort(r)
 print(r)
