@@ -1,4 +1,5 @@
 import time
+from numba import njit, int32
 
 print("program wypisuje ciąg fibonacciego")
 x = int(input("podaj ilość elementów: "))
@@ -6,18 +7,19 @@ x = int(input("podaj ilość elementów: "))
 t1 = time.perf_counter()
 
 
-def n(m):
+@njit(int32(int32))
+def fib(m):
     if m < 0:
         raise ValueError
     if m < 2:
         return 1
     else:
-        return n(m-1)+n(m-2)
+        return fib(m-1)+fib(m-2)
 
 
 m = 1
 for i in range(x):
-    print(n(m))
+    print(fib(m))
     m = m+1
 
 t2 = time.perf_counter()
