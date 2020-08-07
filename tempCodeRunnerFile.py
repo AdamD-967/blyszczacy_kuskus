@@ -1,2 +1,3 @@
-self.rect.centerx = nnode.rect.centerx
-        self.rect.centery = nnode.rect.centery
+np.append(datax, [newx])
+    np.append(datax, [newy])
+    plt.plot(datax, datay)
